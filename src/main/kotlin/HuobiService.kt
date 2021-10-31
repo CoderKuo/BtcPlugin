@@ -8,7 +8,7 @@ import okhttp3.*
 class HuobiService {
     fun getDetail(symbol: String): ResultBean? {
         val client = OkHttpClient()
-        val request = Request.Builder().url("https://api.huobi.de.com/market/history/kline?period=1day&size=1&symbol=$symbol").get().build()
+        val request = Request.Builder().url("https://api.huobi.pro/market/history/kline?period=1day&size=1&symbol=$symbol").get().build()
         val call = client.newCall(request)
         val string = call.execute().body?.string()
         return Gson().fromJson(string, ResultBean::class.java)
